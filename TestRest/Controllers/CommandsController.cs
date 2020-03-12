@@ -15,7 +15,7 @@ namespace TestRest.Controllers
     public class CommandsController : ControllerBase
     {
        
-        //GET:      api/command
+        //GET:      api/commands
         /*[HttpGet]
         public ActionResult<IEnumerable<string>> Getit()
         {
