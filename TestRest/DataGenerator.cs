@@ -7,6 +7,9 @@ namespace TestRest
 {
     public class DataGenerator
     {
-        
+        void TestFunction()
+        {
+            Console.Write("this is a test comment !!!");
+        }
     }
 }
