@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">
+        Voyage Coding Challenge</h1>
+
+        <h3></h3>
+
+
+
+</div>
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <hr />
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="registeruserform" action="https://localhost:5001/api/commands" method="post">
+                            <div class="form-body">
+                                <h3 class="card-title">Add Transaction</h3>
+                                <div class="row p-t-20">
+                                    <div class="col-md-3">
+
+                                        <div class="form-group">
+                                            <label class="control-label">Transaction Date</label>
+                                            <div class="input-group">
+
+                                                <input type="text" id="tid" name="date" class="form-control" placeholder="2020-01-01">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div id="" class="form-group">
+                                            <label class="control-label">Transaction Description</label>
+                                            <div class="input-group">
+
+                                                <input type="text" id="tid2" name="desc" class="form-control" placeholder="Some description">
+                                                <small class="form-control-feedback"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-3">
+                                        <div id="pwdformgroup" class="form-group">
+                                            <label class="control-label">Transasction Amount</label>
+                                            <div class="input-group">
+
+                                                <input type="text" id="tid3" name="amount" class="form-control" placeholder="500">
+                                                <small class="form-control-feedback"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+
+                                
+
+                            </div>
+                            <div class="form-actions m-t-20">
+                                <button id="submitbtn" type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Registrar</button>
+                                
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+       
+    </div>
+    
+</div>
