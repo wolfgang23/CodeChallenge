@@ -30,6 +30,10 @@ namespace TestRest.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Get all transactions
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllTransactions()
         {
@@ -48,6 +52,10 @@ namespace TestRest.Controllers
             return Ok(tran);
         }
 
+        /// <summary>
+        /// Get all created invoices
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("getinvoices")]
         public async Task<IActionResult> GetAllInvoices()
         {
@@ -56,7 +64,12 @@ namespace TestRest.Controllers
             return Ok(tran);
         }
 
-
+        /// <summary>
+        /// Creates Invoices that match the dateini and dateend dates.
+        /// </summary>
+        /// <param name="dateini"></param>
+        /// <param name="dateend"></param>
+        /// <returns></returns>
         [HttpGet("{dateini}/{dateend}")]
         public async Task<IActionResult> CreateInvoice(string dateini , string dateend)
         {
@@ -92,7 +105,13 @@ namespace TestRest.Controllers
             return Ok(invoice);
         }
 
-        //POST:     api/commands
+        /// <summary>
+        /// Creates a transaction
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="desc"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("createtran")]
         public ActionResult<Transaction> CreateTransaction([FromQuery]string date, [FromQuery]string desc, [FromQuery]string amount)//(Transaction transact)
@@ -128,7 +147,12 @@ namespace TestRest.Controllers
             }
         }
 
-        //PUT:      api/commands/n
+        /// <summary>
+        /// Change transaction state of the tranid
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="transact"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public ActionResult UpdateTransaction(int id, Transaction transact)
         {
@@ -143,7 +167,11 @@ namespace TestRest.Controllers
             return Ok(transact);
         }
 
-        //PUT:      api/commands/n
+        /// <summary>
+        /// Change the transaction status to PAID of the transactions that match the invoiceid
+        /// </summary>
+        /// <param name="invoiceid"></param>
+        /// <returns></returns>
         [HttpPut("invoice/{invoiceid}")]
         public async Task<IActionResult> SetPaidInvoice(int invoiceid)
         {
