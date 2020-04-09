@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace DapperMockToken
 {
@@ -35,6 +36,17 @@ namespace DapperMockToken
             services.AddTransient<ICommandText, CommandText>();
             services.AddMvc();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+
+            services.AddSwaggerGen(options =>
+            {
+                options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Dapper Token Proj",
+                    Version = "v1",
+                    Description = "Test Project"
+                });
+            });
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
@@ -65,6 +77,15 @@ namespace DapperMockToken
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseAuthentication();
 

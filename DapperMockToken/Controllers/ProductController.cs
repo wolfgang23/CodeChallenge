@@ -20,6 +20,11 @@ public class ProductController : ControllerBase
         _productRepository = productRepository;
     }
 
+    /// <summary>
+    /// Get Product ById
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet]
     [Route("{id}")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
