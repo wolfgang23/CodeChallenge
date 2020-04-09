@@ -39,8 +39,7 @@ namespace DapperMockToken.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { PasswordHash = model.PasswordHash, Email = model.Email, UserName = model.Email
-                , PhoneNumber = "89891781" , PhoneNumberConfirmed = true};
+                var user = new ApplicationUser { PasswordHash = model.PasswordHash, Email = model.Email, UserName = model.Email};
                 var result = await _userManager.CreateAsync(user, model.PasswordHash);
                 if (result.Succeeded)
                 {
